@@ -1,0 +1,1 @@
+Generated reports go here. `toy/` is demonstration output; `real/` is local research output. Reports are ignored by Git and overwritten when the same output directory is reused. They summarize completeness only.

@@ -1,0 +1,4 @@
+record_id,variant_id,protein_sequence,mic_value,mic_unit,resistance_label,source_id,is_synthetic,notes
+toy-001,TOY-A,,,,,toy-source,true,SYNTHETIC metadata-only demonstration
+toy-002,TOY-B,,,,,toy-source,true,SYNTHETIC biological fields intentionally blank
+toy-003,TOY-C,,,,,toy-source,true,SYNTHETIC not suitable for research or training

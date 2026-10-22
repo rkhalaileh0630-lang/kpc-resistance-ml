@@ -1,0 +1,1 @@
+Open the placeholder notebook with your preferred Jupyter installation if needed. Jupyter is optional and is not installed by requirements.txt. Run the command-line validation first; keep exploratory conclusions separate from verified source data.
