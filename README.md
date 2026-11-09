@@ -26,7 +26,7 @@ The exploration command prints a completeness report and writes `summary.json` a
 1. Keep the original spreadsheet unchanged and export a working copy as CSV (UTF-8).
 2. Copy the header from `data/raw/real_data_template.csv` and map your columns into it. Leave unknown information blank; never fill gaps with guesses.
 3. Save the mapped file locally as `data/raw/kpc_variants.csv`.
-4. Add each publication to `literature/sources_template.csv` and link rows using `source_id`. Preserve strain, assay, and interpretation context in `notes` and your source records.
+4. Copy `literature/sources_template.csv` to `literature/sources.csv`, then add each publication there and link rows using `source_id`. Preserve strain, assay, and interpretation context in `notes` and your source records.
 5. Run:
 
 ```sh
@@ -62,19 +62,30 @@ Read `docs/data_dictionary.md` before mapping columns. The starter requires the 
 
 `src` means source code. `X` would eventually mean numerical inputs derived from verified sequences; `y` would mean independently supported outcome labels. Neither is created here. Sequence embeddings and classifiers require a separate research design and are not implemented in this starter.
 
-## Put this on GitHub
+## Contributing and automated checks
 
-Create an empty GitHub repository, then run from this folder (replace YOUR-USERNAME):
+This project already lives at https://github.com/rkhalaileh0630-lang/kpc-resistance-ml.
+Clone it rather than creating a second repository:
 
 ```sh
-git init
-git add .
-git status
-# Review the staged files before committing.
-git commit -m "Add research data starter"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/kpc-resistance-ml.git
-git push -u origin main
+git clone https://github.com/rkhalaileh0630-lang/kpc-resistance-ml.git
+cd kpc-resistance-ml
+git switch -c your-change
 ```
 
-Only publish data you have permission to redistribute. The ignore rules are a convenience, not an access-control system: review staged files. No software license is selected; add an appropriate license before inviting reuse. See `docs/research_workflow.md` for scientific limitations.
+Follow the setup above, make your change, and run:
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution workflow and
+[docs/source_records.md](docs/source_records.md) for source bookkeeping.
+
+GitHub Actions runs the existing standard-library tests on Python 3.10 and 3.13,
+plus a Python 3.13 macOS job. These checks use the synthetic metadata fixture.
+They test CSV bookkeeping and report generation; they do not establish scientific
+validity or training readiness. The workflow does not download models or research data.
+
+Only publish data you have permission to redistribute. Review staged files before
+committing. No software license is selected; select one deliberately before inviting reuse.
