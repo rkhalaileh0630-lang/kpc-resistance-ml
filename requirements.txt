@@ -1,1 +1,6 @@
-# Python 3.10+ standard library only. No pip dependencies required.
+torch>=2.0.0
+transformers>=4.30.0
+xgboost>=1.7.0
+scikit-learn>=1.2.0
+pandas>=2.0.0
+numpy>=1.24.0
